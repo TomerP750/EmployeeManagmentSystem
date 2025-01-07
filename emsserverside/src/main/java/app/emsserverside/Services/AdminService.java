@@ -1,5 +1,6 @@
 package app.emsserverside.Services;
 
+import app.emsserverside.Beans.Admin;
 import app.emsserverside.Beans.Employee;
 import app.emsserverside.Exceptions.ExistsException;
 import app.emsserverside.Exceptions.InvalidInputException;
@@ -54,6 +55,10 @@ public class AdminService {
 
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
+    }
+
+    public Admin getAdminDetails(String email, String password) {
+        return adminRepository.findByEmailAndPassword(email, password);
     }
 
 }
