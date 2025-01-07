@@ -3,6 +3,8 @@ package app.emsserverside.Beans;
 
 import jakarta.persistence.*;
 
+import java.sql.Date;
+
 @Entity
 @Table(name = "employees")
 public class Employee {
@@ -16,18 +18,22 @@ public class Employee {
     private String phone;
     private Role role;
     private Department department;
+    private Date startDate;
+    private Date endDate;
     private int salary;
 
     public Employee() {
     }
 
-    public Employee(String firstName, String lastName, String email, String phone, Role role, Department department, int salary) {
+    public Employee(String firstName, String lastName, String email, String phone, Role role, Department department, Date startDate, Date endDate, int salary) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
         this.role = role;
         this.department = department;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.salary = salary;
     }
 
@@ -63,6 +69,14 @@ public class Employee {
         return salary;
     }
 
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -89,5 +103,13 @@ public class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 }
