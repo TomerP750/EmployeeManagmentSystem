@@ -10,8 +10,19 @@ import java.io.IOException;
 
 public class JwtFilter extends OncePerRequestFilter {
 
+    private TokenManager tokenManager;
+
+    public JwtFilter(TokenManager tokenManager) {
+        this.tokenManager = tokenManager;
+    }
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-
+//        try {
+//            String authHeader = request.getHeader("Authorization");
+//
+//        } catch () {
+//
+//        }
     }
 }
