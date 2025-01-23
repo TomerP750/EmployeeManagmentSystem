@@ -4,16 +4,18 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.core.annotation.Order;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+@Order(1)
 public class JwtFilter extends OncePerRequestFilter {
 
-    private TokenManager tokenManager;
+    private SessionManager sessionManager;
 
-    public JwtFilter(TokenManager tokenManager) {
-        this.tokenManager = tokenManager;
+    public JwtFilter(SessionManager sessionManager) {
+        this.sessionManager = sessionManager;
     }
 
     @Override
@@ -24,5 +26,13 @@ public class JwtFilter extends OncePerRequestFilter {
 //        } catch () {
 //
 //        }
+    }
+
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        if (request.getServletPath().startsWith("/auth")) {
+            return true;
+        }
+        return false;
     }
 }

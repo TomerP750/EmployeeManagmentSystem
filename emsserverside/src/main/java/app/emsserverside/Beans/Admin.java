@@ -13,6 +13,9 @@ public class Admin {
     private String userName;
     private String password;
 
+    @ManyToOne
+    private Company company;
+
     public Admin() {
     }
 
@@ -20,6 +23,13 @@ public class Admin {
         this.userName = userName;
         this.password = password;
         this.email = email;
+    }
+
+    public Admin(String email, String userName, String password, Company company) {
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
+        this.company = company;
     }
 
     public String getUserName() {
@@ -48,5 +58,9 @@ public class Admin {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Company getCompany() {
+        return company;
     }
 }

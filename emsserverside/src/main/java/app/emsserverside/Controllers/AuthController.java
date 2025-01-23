@@ -2,8 +2,7 @@ package app.emsserverside.Controllers;
 
 
 import app.emsserverside.Exceptions.InvalidInputException;
-import app.emsserverside.Security.TokenManager;
-import app.emsserverside.Services.AdminService;
+import app.emsserverside.Security.SessionManager;
 import app.emsserverside.Services.LoginManager;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
     private LoginManager loginManager;
-    private TokenManager tokenManager;
+    private SessionManager sessionManager;
 
-    public AuthController(LoginManager loginManager, TokenManager tokenManager) {
+    public AuthController(LoginManager loginManager, SessionManager sessionManager) {
         this.loginManager = loginManager;
-        this.tokenManager = tokenManager;
+        this.sessionManager = sessionManager;
     }
 
     @PostMapping
@@ -29,7 +28,7 @@ public class AuthController {
 
     @GetMapping("logout")
     public void logout(String token) {
-        tokenManager.getActiveTokens().remove(token);
+        sessionManager.getActiveTokens().remove(token);
     }
 
 

@@ -2,6 +2,6 @@ package app.emsserverside.Beans;
 
 public enum Role {
 
-    EMPLOYEE, MANAGER, CEO
+    EMPLOYEE, TEAMLEADER ,MANAGER, CEO
 
 }

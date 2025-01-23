@@ -22,6 +22,9 @@ public class Employee {
     private Date endDate;
     private int salary;
 
+    @ManyToOne
+    private Company company;
+
     public Employee() {
     }
 
@@ -35,6 +38,31 @@ public class Employee {
         this.startDate = startDate;
         this.endDate = endDate;
         this.salary = salary;
+    }
+
+    public Employee(String firstName, String lastName, String email, String phone, Role role, Department department, Date startDate, Date endDate, int salary, Company company) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.role = role;
+        this.department = department;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.salary = salary;
+        this.company = company;
+    }
+
+    public Employee(String firstName, String lastName, String email, String phone, Role role, Department department, Date startDate, int salary, Company company) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.role = role;
+        this.department = department;
+        this.startDate = startDate;
+        this.salary = salary;
+        this.company = company;
     }
 
     public int getId() {
@@ -111,5 +139,9 @@ public class Employee {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public Company getCompany() {
+        return company;
     }
 }

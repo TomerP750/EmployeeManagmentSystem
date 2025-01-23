@@ -2,10 +2,10 @@ package app.emsserverside.Security;
 
 import java.sql.Date;
 
-public class TokenProperties {
+public class Session {
     private Date lastUpdated;
 
-    public TokenProperties(Date lastUpdated) {
+    public Session(Date lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
 

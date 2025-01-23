@@ -30,7 +30,7 @@ public class AdminService {
             throw new InvalidInputException("Invalid Date Input");
         }
         //TODO Add all attributes
-        if (employee.getFirstName().equals("") ) {
+        if (employee.getFirstName().isEmpty()) {
             throw new InvalidInputException("All field must be filled");
         }
     }
@@ -60,5 +60,10 @@ public class AdminService {
     public Admin getAdminDetails(String email, String password) {
         return adminRepository.findByEmailAndPassword(email, password);
     }
+
+    public boolean checkIfSameCompany(Admin adminCheck, Employee employeeCheck) {
+        return employeeCheck.getCompany().equals(adminCheck.getCompany());
+    }
+
 
 }

@@ -1,5 +1,5 @@
 package app.emsserverside.Beans;
 
 public enum Department {
-    QA, FULLSTACK, DEVOPS, UIUX
+    QA, FULLSTACK, DEVOPS, UIUX, IT, CYBERSECURITY
 }
